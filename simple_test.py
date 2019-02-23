@@ -3,7 +3,7 @@
 """
 author:jacob
 created_date:2019/02/20
-update:2019/02/21
+update:2019/02/23
 """
 
 
@@ -59,6 +59,24 @@ class Solution:
         print(result_list)
         return result_list
 
+    def lengthOfLongestSubstring(self, s):
+        # 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
+        """
+        :param s: str
+        :return: int
+        """
+        if s == "":
+            print(len(s))
+            return len(s)
+        else:
+            result = []
+            for x in range(len(s)):
+                for y in range(x + 1, len(s) + 1):
+                    new = s[x:y:]
+                    if len(new) == len(set(new)):
+                        result.append(len(new))
+            print(max(result))
+            return max(result)
 
 if __name__ == '__main__':
     pass
