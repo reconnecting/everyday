@@ -3,7 +3,7 @@
 """
 author:jacob
 created_date:2019/02/20
-update:2019/02/28
+update:2019/03/03
 """
 
 
@@ -24,6 +24,21 @@ class Solution():
                 if nums[x] == target - nums[y]:
                     if x != y:
                         return x, y
+
+    def twoSum_dict_function(self, nums, target):
+        # 这个方法是hash方法
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        index_value = {}
+        for index, value in enumerate(nums):
+            another_num = target - value
+            if another_num in index_value:
+                return [index_value[another_num], index]
+            index_value[nums] = index
+        return None
 
     def two_list_plus(self, a, b):
         """
@@ -151,7 +166,7 @@ class Solution():
         print(result[length.index(a)])
         return result[length.index(a)]
 
-    def threeSum(self,nums):
+    def threeSum(self, nums):
         # 这个暴力法，时间复杂度太高了，需要改进
         """
         :param nums: 
@@ -247,6 +262,7 @@ class Solution():
             print(result_new)
             return result_new
 
+
 if __name__ == '__main__':
-    test=Solution()
+    test = Solution()
     test.lengthOfLongestSubstring_pass("yreqqy6753100p;..nhioplngfdvbkjhtub8tt77v6rc6e5yctswaadfgghjklmnbvcxzwertyuio")
