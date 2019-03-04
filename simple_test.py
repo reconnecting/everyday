@@ -262,6 +262,17 @@ class Solution():
             print(result_new)
             return result_new
 
+    def removeElement(self, nums, val):
+        """
+        :param nums: 
+        :param val: 
+        :return: 
+        """
+        for x in range(len(nums)):
+            # print(x)
+            if val in nums:
+                nums.remove(val)
+        return nums
 
 if __name__ == '__main__':
     test = Solution()
