@@ -3,7 +3,7 @@
 """
 author:jacob
 created_date:2019/02/20
-update:2019/03/03
+update:2019/03/04
 """
 
 
@@ -261,6 +261,23 @@ class Solution():
             result_new.append([0, 0, 0])
             print(result_new)
             return result_new
+
+    def removeDuplicates(self, nums):
+        # 这个方法在本地跑的时候没有错，为啥LeetCode那边就挂了…………无语
+        # 给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。
+        # 不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。
+        """
+        :param nums:
+        :return:
+        """
+        n = len(nums)
+        i = 0
+        for x in range(n):
+            if x < n - 1 and nums[x - i] == nums[x + 1 - i]:
+                nums.remove(nums[x - i])
+                i = i + 1
+        print(nums)
+        return nums
 
     def removeElement(self, nums, val):
         """
