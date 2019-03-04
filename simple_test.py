@@ -263,7 +263,6 @@ class Solution():
             return result_new
 
     def removeDuplicates(self, nums):
-        # 这个方法在本地跑的时候没有错，为啥LeetCode那边就挂了…………无语
         # 给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。
         # 不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。
         """
@@ -277,7 +276,7 @@ class Solution():
                 nums.remove(nums[x - i])
                 i = i + 1
         print(nums)
-        return nums
+        return len(nums)
 
     def removeElement(self, nums, val):
         """
@@ -290,6 +289,37 @@ class Solution():
             if val in nums:
                 nums.remove(val)
         return nums
+
+    def isPalindrome(self, x):
+        # 判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数
+        """
+        :param x: 
+        :return: bool
+        """
+        if x >= 0 and int(str(x)[::-1]) == x:
+            return True
+        else:
+            return False
+
+    def singleNumber_1(self, nums):
+        # 给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。
+        """
+        :param nums 
+        :return: 
+        """
+        return 2 * sum(set(nums)) - sum(nums)
+
+    def singleNumber_2(self, nums):
+        # 使用异或，一个循环搞定
+        """
+        :param nums: 
+        :return: 
+        """
+        n = 0
+        for x in nums:
+            n = n ^ nums
+        return n
+
 
 if __name__ == '__main__':
     test = Solution()
