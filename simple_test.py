@@ -3,7 +3,7 @@
 """
 author:jacob
 created_date:2019/02/20
-update:2019/03/04
+update:2019/03/05
 """
 
 
@@ -357,6 +357,15 @@ class Solution():
         :return:
         """
         return str(int(num1) * int(num2))
+
+    def subsets(self, nums):
+        output = [[]]
+        for x in range(len(nums)):
+            for j in range(len(output)):
+                print(j)
+                output.append(output[j] + [nums[x]])
+        print(output)
+        return output
 
 if __name__ == '__main__':
     test = Solution()
