@@ -320,6 +320,43 @@ class Solution():
             n = n ^ nums
         return n
 
+    def reverseString(self, s):
+        # 编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 char[] 的形式给出。
+        # 不要给另外的数组分配额外的空间，你必须原地修改输入数组、使用 O(1) 的额外空间解决这一问题。
+        # 你可以假设数组中的所有字符都是 ASCII 码表中的可打印字符。
+        """
+        :param s:
+        :return:
+        """
+        return s.reverse()
+
+    def majorityElement_1(self, nums):
+        # 给定一个大小为 n 的数组，找到其中的众数。众数是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。
+        # 你可以假设数组是非空的，并且给定的数组总是存在众数。
+        """
+        :param nums:
+        :return:
+        """
+        a = len(nums) // 2
+        b = sorted(nums)
+        print(b[a])
+        return b[a]
+
+    def majorityElement_2(self, nums):
+        # 这个时间复杂度比较高
+        for x in nums:
+            if nums.count(x) > len(nums) / 2:
+                print(x)
+                return x
+
+    def multiply(self, num1, num2):
+        # 给定两个以字符串形式表示的非负整数 num1 和 num2，返回 num1 和 num2 的乘积，它们的乘积也表示为字符串形式。
+        """
+        :param num1:
+        :param num2:
+        :return:
+        """
+        return str(int(num1) * int(num2))
 
 if __name__ == '__main__':
     test = Solution()
