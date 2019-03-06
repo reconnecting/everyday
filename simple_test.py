@@ -373,6 +373,28 @@ class Solution():
         print(output)
         return output
 
+    def merge(self, nums1, m, nums2, n):
+        # 编号88
+        # 给定两个有序整数数组 nums1 和 nums2，将 nums2 合并到 nums1 中，使得 num1 成为一个有序数组
+        """
+        :param m: 
+        :param nums2: 
+        :param n: 
+        :return: 
+        """
+        for i in range(1, n + 1):
+            nums1[-i] = nums2[i - 1]
+        nums1.sort()
+
+    def canWinNim(self, n: int) -> bool:
+        # 编号292
+        # 你和你的朋友，两个人一起玩 Nim游戏：桌子上有一堆石头，每次你们轮流拿掉 1 - 3 块石头。 拿掉最后一块石头的人就是获胜者。你作为先手。
+        """
+        :param n: 
+        :return: 
+        """
+        return n % 4 != 0
+
 if __name__ == '__main__':
     test = Solution()
     test.lengthOfLongestSubstring_pass("yreqqy6753100p;..nhioplngfdvbkjhtub8tt77v6rc6e5yctswaadfgghjklmnbvcxzwertyuio")
