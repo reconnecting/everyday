@@ -359,11 +359,17 @@ class Solution():
         return str(int(num1) * int(num2))
 
     def subsets(self, nums):
+        # 给定一组不含重复元素的整数数组 nums，返回该数组所有可能的子集（幂集）
+        # 此题的精妙之处在于，把每次的新子集都加上新的数，就是完整的子集了
+        """
+        :param nums:
+        :return:
+        """
         output = [[]]
         for x in range(len(nums)):
             for j in range(len(output)):
                 print(j)
-                output.append(output[j] + [nums[x]])
+                output.append(output[j] + [nums[x]])  # 每次新的子集都加上新的数字
         print(output)
         return output
 
