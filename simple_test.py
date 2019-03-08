@@ -3,7 +3,7 @@
 """
 author:jacob
 created_date:2019/02/20
-update:2019/03/05
+update:2019/03/08
 """
 
 
@@ -386,7 +386,7 @@ class Solution():
             nums1[-i] = nums2[i - 1]
         nums1.sort()
 
-    def canWinNim(self, n: int) -> bool:
+    def canWinNim(self, n):
         # 编号292
         # 你和你的朋友，两个人一起玩 Nim游戏：桌子上有一堆石头，每次你们轮流拿掉 1 - 3 块石头。 拿掉最后一块石头的人就是获胜者。你作为先手。
         """
@@ -394,6 +394,77 @@ class Solution():
         :return: 
         """
         return n % 4 != 0
+
+    def productExceptSelf_1(self, nums):
+        # 编号238
+        # 方法一：构造一个map，映射到相对应的新数组
+        # 给定长度为 n 的整数数组 nums，其中 n > 1，返回输出数组 output ，其中 output[i] 等于 nums 中除 nums[i] 之外其余各元素的乘积。
+        """
+        :param nums: 
+        :return: 
+        """
+        list_list = []
+        for x in range(len(nums)):
+            new_list = nums[::]
+            new_list.pop(x)
+            list_list.append(new_list)
+        print(list_list)
+        dd = map(self.f, list_list)
+        result = []
+        for x in dd:
+            print(x)
+            result.append(x)
+        print(result)
+        return result
+
+    def f(self, nums):
+        multi = 1
+        for x in nums:
+            multi = multi * x
+        print(multi)
+        return multi
+
+    def productExceptSelf_2(self, nums):
+        # 编号238
+        # 方法二：分情况讨论，一个0，两个0，没有0；如果没有0，用乘积除以num[x]
+        # 给定长度为 n 的整数数组 nums，其中 n > 1，返回输出数组 output ，其中 output[i] 等于 nums 中除 nums[i] 之外其余各元素的乘积。
+        """
+        :param nums: 
+        :return: 
+        """
+        result = []
+        sums = 1
+        count_zero = 0
+        for x in nums:
+            if x == 0:
+                count_zero += 1
+                continue
+            sums = sums * x
+            print(sums)
+        for x in range(len(nums)):
+            if count_zero >= 2:
+                result.append(0)
+            elif count_zero == 1:
+                if nums[x] == 0:
+                    result.append(sums)
+                else:
+                    result.append(0)
+            else:
+                result.append(int(sums / nums[x]))
+        print(result)
+        return result
+
+    def reverseWords(self, s):
+        # 编号557
+        # 给定一个字符串，你需要反转字符串中每个单词的字符顺序，同时仍保留空格和单词的初始顺序。
+        """
+        :param s: 
+        :return: 
+        """
+        str_list = []
+        for x in s.split(" "):
+            str_list.append(x[::-1])
+        return " ".join(str_list)
 
 if __name__ == '__main__':
     test = Solution()
