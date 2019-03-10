@@ -3,7 +3,7 @@
 """
 author:jacob
 created_date:2019/02/20
-update:2019/03/08
+update:2019/03/10
 """
 
 
@@ -143,6 +143,7 @@ class Solution():
             return num[int(len(num) / 2)]
 
     def longestPalindrome(self, s):
+        # 编号5
         # 给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。
         # 暴力法再次失败，呜呜呜
         """
@@ -465,6 +466,49 @@ class Solution():
         for x in s.split(" "):
             str_list.append(x[::-1])
         return " ".join(str_list)
+
+    def findKthLargest(self, nums, k):
+        # 编号215
+        # 在未排序的数组中找到第 k 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。
+        """
+        :param nums: 
+        :param k: 
+        :return: 
+        """
+        nums.sort(reverse=True)
+        return nums[k - 1]
+
+    def generate(self, numRows):
+        # 编号118
+        # 给定一个非负整数 numRows，生成杨辉三角的前 numRows 行。
+        """
+        :param numRows: 
+        :return: 
+        """
+        if numRows == 0:
+            return []
+        if numRows == 1:
+            return [[1]]
+        if numRows == 2:
+            return [[1], [1, 1]]
+        else:
+            b = [[1], [1, 1]]
+            a = [1, 1]
+            for x in range(numRows - 2):
+                a = self.generate_get_list(a)
+                b.append(a)
+            return b
+
+    def generate_get_list(self, nums):
+        a = []
+        for x, y in enumerate(nums):
+            if x < len(nums) - 1:
+                a.append(y + nums[x + 1])
+        a.append(1)
+        a.reverse()
+        a.append(1)
+        return a
+
 
 if __name__ == '__main__':
     test = Solution()
