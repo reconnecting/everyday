@@ -500,12 +500,10 @@ class Solution():
             return b
 
     def generate_get_list(self, nums):
-        a = []
+        a = [1]
         for x, y in enumerate(nums):
             if x < len(nums) - 1:
                 a.append(y + nums[x + 1])
-        a.append(1)
-        a.reverse()
         a.append(1)
         return a
 
